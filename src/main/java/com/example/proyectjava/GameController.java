@@ -104,12 +104,15 @@ public class GameController {
         boolean posiblePintarCasilla = false;
         while (!posiblePintarCasilla) {
             int resultadoComp = (int) Math.floor(Math.random() * 9);
+            System.out.println(resultadoComp);
             switch (resultadoComp) {
                 case 0:
                     if(button1.isDisabled()){
+                        System.out.println("Repetido1");
                         break;
                     }
                     else {
+                        System.out.println("Pinta1");
                         button1.setText(resultado);
                         button1.setDisable(true);
                         checkIfGameIsOver();
@@ -117,45 +120,110 @@ public class GameController {
                         break;
                     }
                 case 1:
-                    button2.setText(resultado);
-                    button2.setDisable(true);
-                    checkIfGameIsOver();
-                    break;
+                    if(button2.isDisabled()){
+                        System.out.println("Repetido2");
+                        break;
+                    }
+                    else {
+                        System.out.println("Pinta2");
+                        button2.setText(resultado);
+                        button2.setDisable(true);
+                        checkIfGameIsOver();
+                        posiblePintarCasilla=true;
+                        break;
+                    }
                 case 2:
-                    button3.setText(resultado);
-                    button3.setDisable(true);
-                    checkIfGameIsOver();
-                    break;
+                    if(button3.isDisabled()){
+                        System.out.println("Repetido3");
+                        break;
+                    }
+                    else {
+                        System.out.println("Pinta3");
+                        button3.setText(resultado);
+                        button3.setDisable(true);
+                        checkIfGameIsOver();
+                        posiblePintarCasilla = true;
+                        break;
+                    }
                 case 3:
-                    button4.setText(resultado);
-                    button4.setDisable(true);
-                    checkIfGameIsOver();
-                    break;
+                    if(button4.isDisabled()){
+                        System.out.println("Repetido4");
+                        break;
+                    }
+                    else {
+                        System.out.println("Pinta4");
+                        button4.setText(resultado);
+                        button4.setDisable(true);
+                        checkIfGameIsOver();
+                        posiblePintarCasilla = true;
+                        break;
+                    }
                 case 4:
-                    button5.setText(resultado);
-                    button5.setDisable(true);
-                    checkIfGameIsOver();
-                    break;
+                    if(button5.isDisabled()){
+                        System.out.println("Repetido5");
+                        break;
+                    }
+                    else {
+                        System.out.println("Pinta5");
+                        button5.setText(resultado);
+                        button5.setDisable(true);
+                        checkIfGameIsOver();
+                        posiblePintarCasilla = true;
+                        break;
+                    }
                 case 5:
-                    button6.setText(resultado);
-                    button6.setDisable(true);
-                    checkIfGameIsOver();
-                    break;
+                    if(button6.isDisabled()){
+                        System.out.println("Repetido6");
+                        break;
+                    }
+                    else {
+                        System.out.println("Pinta6");
+                        button6.setText(resultado);
+                        button6.setDisable(true);
+                        checkIfGameIsOver();
+                        posiblePintarCasilla = true;
+                        break;
+                    }
                 case 6:
-                    button7.setText(resultado);
-                    button7.setDisable(true);
-                    checkIfGameIsOver();
-                    break;
+                    if(button7.isDisabled()){
+                        System.out.println("Repetido7");
+                        break;
+                    }
+                    else {
+                        System.out.println("Pinta7");
+                        button7.setText(resultado);
+                        button7.setDisable(true);
+                        checkIfGameIsOver();
+                        posiblePintarCasilla = true;
+                        break;
+                    }
                 case 7:
-                    button8.setText(resultado);
-                    button8.setDisable(true);
-                    checkIfGameIsOver();
-                    break;
+                    if(button8.isDisabled()){
+                        System.out.println("Repetido8");
+                        break;
+                    }
+                    else {
+                        System.out.println("Pinta8");
+                        button8.setText(resultado);
+                        button8.setDisable(true);
+                        checkIfGameIsOver();
+                        posiblePintarCasilla = true;
+                        break;
+                    }
                 case 8:
-                    button9.setText(resultado);
-                    button9.setDisable(true);
-                    checkIfGameIsOver();
-                    break;
+                    if(button9.isDisabled()){
+                        System.out.println("Repetido9");
+
+                        break;
+                    }
+                    else {
+                        System.out.println("Pinta9");
+                        button9.setText(resultado);
+                        button9.setDisable(true);
+                        checkIfGameIsOver();
+                        posiblePintarCasilla = true;
+                        break;
+                    }
             }
         }
     }
