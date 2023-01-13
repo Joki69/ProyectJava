@@ -1,19 +1,15 @@
 package com.example.proyectjava;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.text.Text;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.ResourceBundle;
 
-public class HelloController  {
+public class GameController {
     @FXML
     private Label welcomeText;
 
@@ -35,6 +31,8 @@ public class HelloController  {
     private Button button8;
     @FXML
     private Button button9;
+    @FXML
+    private Button reset;
     private int playerTurnNumber = 0;
     @FXML
     private Text playerTurnText;
@@ -60,21 +58,26 @@ public class HelloController  {
             });
         }
         else if(CompVsComp.isSelected()){
-
+            buttons.forEach(button -> {
+                compSelctTurn();
+                button.setFocusTraversable(false);
+            });
         }
     }
+    //Reseteara el juego
     @FXML
     void restartGame(){
         buttons.forEach(this::resetButton);
     }
 
+//volver el boton al valor inicial
     public void resetButton(Button button){
         button.setDisable(false);
         button.setText("");
 
     }
 
-
+//Identificar los clicks en PlayervsPlayer
     public void setupButton(Button button){
         button.setOnMouseClicked(mouseEvent -> {
             setPlayerSymbol(button);
@@ -82,8 +85,9 @@ public class HelloController  {
             checkIfGameIsOver();
         });
     }
-
+    //Decidir los turnos en PlayervsPlayer
     public void setPlayerSymbol(Button button){
+
         if(playerTurnNumber % 2==0){
             button.setText("X");
             playerTurnNumber = 1;
@@ -96,6 +100,80 @@ public class HelloController  {
         }
     }
 
+    public void compSetButton(String resultado) {
+        boolean posiblePintarCasilla = false;
+        while (!posiblePintarCasilla) {
+            int resultadoComp = (int) Math.floor(Math.random() * 9);
+            switch (resultadoComp) {
+                case 0:
+                    if(button1.isDisabled()){
+                        break;
+                    }
+                    else {
+                        button1.setText(resultado);
+                        button1.setDisable(true);
+                        checkIfGameIsOver();
+                        posiblePintarCasilla=true;
+                        break;
+                    }
+                case 1:
+                    button2.setText(resultado);
+                    button2.setDisable(true);
+                    checkIfGameIsOver();
+                    break;
+                case 2:
+                    button3.setText(resultado);
+                    button3.setDisable(true);
+                    checkIfGameIsOver();
+                    break;
+                case 3:
+                    button4.setText(resultado);
+                    button4.setDisable(true);
+                    checkIfGameIsOver();
+                    break;
+                case 4:
+                    button5.setText(resultado);
+                    button5.setDisable(true);
+                    checkIfGameIsOver();
+                    break;
+                case 5:
+                    button6.setText(resultado);
+                    button6.setDisable(true);
+                    checkIfGameIsOver();
+                    break;
+                case 6:
+                    button7.setText(resultado);
+                    button7.setDisable(true);
+                    checkIfGameIsOver();
+                    break;
+                case 7:
+                    button8.setText(resultado);
+                    button8.setDisable(true);
+                    checkIfGameIsOver();
+                    break;
+                case 8:
+                    button9.setText(resultado);
+                    button9.setDisable(true);
+                    checkIfGameIsOver();
+                    break;
+            }
+        }
+    }
+    public void compSelctTurn() {
+        if(playerTurnNumber % 2==0){
+            String resultado="X";
+            compSetButton(resultado);
+            playerTurnNumber = 1;
+            playerTurnText.setText("Playing: Player 2");
+        }
+        else {
+            String resultado="O";
+            compSetButton(resultado);
+            playerTurnNumber=0;
+            playerTurnText.setText("Playing: Player 1");
+        }
+    }
+//Comprueba si alguien ha ganado
     public void checkIfGameIsOver() {
         for (int i = 0; i < 8; i++) {
             String line = switch (i) {
@@ -120,8 +198,13 @@ public class HelloController  {
                 playerTurnText.setText("Player 2 won!");
                 restartGame();
             }
+
+
+
         }
+
     }
+    //Cierra el juego
     @FXML
     protected void closeGame() {
         System.exit(0);

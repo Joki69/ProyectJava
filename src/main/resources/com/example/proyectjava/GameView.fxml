@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectjava.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyectjava.GameController">
    <children>
       <Pane layoutY="-2.0" prefHeight="52.0" prefWidth="600.0">
          <children>
@@ -71,5 +71,6 @@
       <RadioButton fx:id="PlayerVsComp" layoutX="371.0" layoutY="182.0" mnemonicParsing="false" text="Human Vs Computer" toggleGroup="$mode" />
       <Text fx:id="playerTurnText" layoutX="381.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Playing:" wrappingWidth="122.59375" />
       <Button layoutX="370.0" layoutY="266.0" mnemonicParsing="false" onAction="#initialize" prefHeight="39.0" prefWidth="178.0" text="Start" />
+      <Button fx:id="reset" layoutX="288.0" layoutY="355.0" mnemonicParsing="false" onAction="#restartGame" text="Reset" />
    </children>
 </AnchorPane>
